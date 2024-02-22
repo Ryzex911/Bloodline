@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bloodline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="project.css">
+</head>
+
+<body>
+
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars burgerlines"></i>
+    </label>
+    <label class="logo"><img src="project-pics/logo2.png" alt=""></label>
+    <ul>
+      <li><a class="active" href="Home.html">Home</a></li>
+      <li><a href="Aboutme.html">The game</a></li>
+      <li><a href="Experience.html">Experience</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+    </ul>
+    <img src="project-pics/moon.png" id="icon">
+  </nav>
+
+  <section class="exp-text-pics-section">
+    <div class="exp-text-cont">
+      <p class="exp-text">
+        We bring a wealth of experience from our collaboration on a school project centered around game development. <br>
+         Through this endeavor, we have honed our skills in HTML, CSS, and Java, crucial languages for web development <br>
+          and game design. Our proficiency extends beyond coding; we excel in the creative aspects of game design, including character <br>
+           conceptualization and drawing. Our combined talents make us well-equipped to tackle challenges and deliver innovative solutions <br> 
+           in any project we undertake.
+      </p>
+    </div>
+  </section>
+
+  <section class="cube-section">
+    <div class="cube" id="interactiveCube">
+      <div class="cube-face front">
+        <img src="project-pics/koning 1.png" alt="koning">
+      </div>
+      <div class="cube-face back">
+        <img src="project-pics/prinsje 1.png" alt="Prinsje">
+      </div>
+    </div>
+
+
+  <script>
+    var icon = document.getElementById("icon");
+    icon.onclick = function () {
+      document.body.classList.toggle("dark-theme");
+      if (document.body.classList.contains("dark-theme")) {
+        icon.src = "project-pics/moon.png";
+      } else {
+        icon.src = "project-pics/sun.png";
+      }
+    }
+  </script>
+
+  <script>
+    const cube = document.getElementById('interactiveCube');
+    let isDragging = false;
+    let startX, startY;
+
+    cube.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - startX;
+      const deltaY = e.clientY - startY;
+
+      cube.style.transform = `rotateX(${deltaY}deg) rotateY(${deltaX}deg)`;
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+  </script>
+
+</body>
+
+</html>
